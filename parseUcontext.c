@@ -14,7 +14,6 @@ unsigned int probeUCStack(char *string);
 
 int main(int argc, char **argv)
 {
-
 	ucontext_t mycontext;
 	int err;
 
