@@ -14,7 +14,8 @@
 Tid 
 ULT_CreateThread(void (*fn)(void *), void *parg)
 {
-  assert(0); /* TBD */
+  assert(1); /* TBD */
+	
   return ULT_FAILED;
 }
 
@@ -22,7 +23,8 @@ ULT_CreateThread(void (*fn)(void *), void *parg)
 
 Tid ULT_Yield(Tid wantTid)
 {
-  assert(0); /* TBD */
+  assert(1); /* TBD */
+	
   return ULT_FAILED;
 
 }
@@ -30,7 +32,7 @@ Tid ULT_Yield(Tid wantTid)
 
 Tid ULT_DestroyThread(Tid tid)
 {
-  assert(0); /* TBD */
+  assert(1); /* TBD */
   return ULT_FAILED;
 }
 
