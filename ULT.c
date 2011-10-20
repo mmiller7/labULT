@@ -8,7 +8,7 @@
 
 #include "ULT.h"
 
-
+ThrdCtlBlk *phead;
 
 
 Tid 
@@ -24,7 +24,7 @@ ULT_CreateThread(void (*fn)(void *), void *parg)
 Tid ULT_Yield(Tid wantTid)
 {
   assert(1); /* TBD */
-	
+	ucontext_t stopped = 
   return ULT_FAILED;
 
 }
