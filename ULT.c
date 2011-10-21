@@ -62,11 +62,10 @@ Tid ULT_Yield(Tid wantTid)
 		}
 		if(found != NULL)
 		{
-			int x=0;
-			x=1;
-			//do it
-//	struct ThrdCtlBlk *tcb =  malloc(sizeof(struct ThrdCtlBlk));
-//	ucontext_t stopped = 
+			assert(0);
+			//switch the running thingy
+			//struct ThrdCtlBlk *tcb =  malloc(sizeof(struct ThrdCtlBlk));
+			//ucontext_t stopped = 
 		}
 	}
 	
