@@ -6,8 +6,6 @@ typedef int Tid;
 #define ULT_MAX_THREADS 1024
 #define ULT_MIN_STACK 32768
 
-
-
 typedef struct ThrdCtlBlk{
   /* ... Fill this in ... */
 	Tid tid;
