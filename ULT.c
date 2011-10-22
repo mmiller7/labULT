@@ -19,7 +19,7 @@ Tid nextTid = 1;
 
 Tid ULT_CreateThread(void (*fn)(void *), void *parg)
 {
-  assert(0); /* TBD */
+  assert(1); /* TBD */
 	
   return ULT_FAILED;
 }
@@ -63,6 +63,7 @@ Tid ULT_Yield(Tid wantTid)
 		if(found != NULL)
 		{
 			assert(0);
+
 			//switch the running thingy
 			//struct ThrdCtlBlk *tcb =  malloc(sizeof(struct ThrdCtlBlk));
 			//ucontext_t stopped = 
