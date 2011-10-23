@@ -19,7 +19,12 @@ Tid nextTid = 1;
 Tid ULT_CreateThread(void (*fn)(void *), void *parg)
 {
   assert(1); /* TBD */
+	//TODO need to create a tbc somewhere in here and stick the new thing in it
+	//TODO assign it the next tid and increment nextTid
+	//TODO put the tcb in the queue
+	//TODO figure out what else goes here...new stack stuff?
 	stub(fn,parg);
+	//TODO figure out what to return
   return ULT_FAILED;
 }
 
@@ -82,18 +87,20 @@ Tid ULT_Yield(Tid wantTid)
 				found=found->next;
 			}
 		}
+		if(debug) printf("%s","About to test if found!=NULL\n");
 		//If we found something, it will be in found
 		//If found is null, that means we ran out of things to look for
 		//and still didn't find it.
 		if(found != NULL)
 		{
-			assert(0);
+			if(debug) printf("%s","found is not null!\n");
 
 			//found will be the tcb for the new thread
 
 			//do the IP jump for what we're about to load
 			//needed to skip the load instruction and prevent infinite loop
 			//TODO
+			assert(0);
 
 			//make tcb for currently running thread
 			struct ThrdCtlBlk *tcb =  malloc(sizeof(struct ThrdCtlBlk));
@@ -103,6 +110,10 @@ Tid ULT_Yield(Tid wantTid)
 
 			//set the new context
 			setcontext(&found->context);
+		}
+		else
+		{
+			if(debug) printf("%s","found is NULL!\n");
 		}
 	}
 	
