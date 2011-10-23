@@ -36,6 +36,7 @@ static inline int ULT_isOKRet(Tid ret){
 Tid ULT_CreateThread(void (*fn)(void *), void *parg);
 Tid ULT_Yield(Tid tid);
 Tid ULT_DestroyThread(Tid tid);
+void stub(void(*root)(void *),void *arg);
 
 
  

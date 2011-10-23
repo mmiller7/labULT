@@ -19,7 +19,7 @@ Tid nextTid = 1;
 Tid ULT_CreateThread(void (*fn)(void *), void *parg)
 {
   assert(1); /* TBD */
-
+	stub(fn,parg);
   return ULT_FAILED;
 }
 
@@ -120,7 +120,12 @@ Tid ULT_DestroyThread(Tid tid)
   return ULT_FAILED;
 }
 
-
-
-
-
+void stub(void (*root)(void *), void *arg)
+{
+    // thread starts here
+		Tid ret;
+	  root(arg); // call root function
+    ret = ULT_DestroyThread(ULT_SELF);
+		assert(ret == ULT_NONE); // we should only get here if we are the last thread.
+		exit(0); // all threads are done, so process should exit
+}
