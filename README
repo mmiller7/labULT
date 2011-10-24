@@ -1,15 +1,18 @@
 Names of both team members
-
+	Matthew Miller
+	Joe Proffitt
 
 Number of slip days used (this project)/(total)
-
+0
 
 Describe your high level design here.
 
 
 Describe your testing strategy here
 (and explain how to run your tests and interpret your results)
-
+	Unfortunately, we never actually made it to the point where we were
+	able to design and implement our own test programs.  We did, however,
+	use the provided doTest program for testing and debugging purposes.
 
 
 Document your testing results here

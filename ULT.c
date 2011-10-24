@@ -41,12 +41,12 @@ Tid ULT_CreateThread(void (*fn)(void *), void *parg)
 	//push stuff on
 	if(debug)printf("%s","Making room for parg\n");
 	stack=stack-4;
-	if(debug)printf("%s","Pushing parg\n");
-	strcpy((char*)stack,parg);
+	if(debug)printf("%s%s%s","Pushing parg ",(char*)parg,"\n");
+	memcpy(stack,parg,4);
 	if(debug)printf("%s","Making room for fn\n");
 	stack=stack-4;
-	if(debug)printf("%s","Pushing fn\n");
-	strcpy(stack,(char*)fn);
+	if(debug)printf("%s%x%s","Pushing fn ",(unsigned int)fn,"\n");
+	memcpy(stack,fn,4);
 
 	//get a context so we have something to mess with
 	if(debug)printf("%s","getting context\n");
@@ -206,7 +206,7 @@ Tid ULT_DestroyThread(Tid tid)
 void stub(void (*root)(void *), void *arg)
 {
 		if(debug) printf("%s","In the stub\n");
-		//if(debug) printf("%s%s%s","Running stub passed arg ",(char)arg,"\n");
+		if(debug) printf("%s%s%s","Running stub passed arg ",(char*)arg,"\n");
     // thread starts here
 		Tid ret;
 	  root(arg); // call root function
