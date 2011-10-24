@@ -6,7 +6,13 @@ Number of slip days used (this project)/(total)
 0
 
 Describe your high level design here.
-
+	Our design was broken into three parts:  thread yielding,
+	thread creating, and thread destroying.  We decided to
+	focus on each one of these in order, designing and implementing
+	each one before moving onto the next.  This worked well for
+	yield, but due to difficulties with the project and the related
+	materials, we were not able to complete the implementation of
+	create and destroy.
 
 Describe your testing strategy here
 (and explain how to run your tests and interpret your results)
@@ -14,9 +20,31 @@ Describe your testing strategy here
 	able to design and implement our own test programs.  We did, however,
 	use the provided doTest program for testing and debugging purposes.
 
+	What we found useful was using printf statements to keep track of what
+	part of the program managed to execute before crashing, which let us
+	know what crashed and how we might fix it.  This method was useful
+	because while we understood things conceptually, we had a hard time
+	getting the syntax right.  doTest pretty much allowed us to tinker with
+	syntax until we got it right.  Afterwards, any strange behavior was
+	usually attributed to copy-paste errors or using the wrong pointer for
+	an operation or check.  All our additional print statments are controlled
+	by a global variable "debug" in ULT.c on line 14.
+
 
 Document your testing results here
+	As far as results go, we managed to make the program run until setcontext is called
+	on a newly created thread.	What happens then is a segmentation fault as soon as stub
+	attempts to access it's arguments, which is most likely caused by the items that are
+	pushed onto the stack.  A print statment in stub tells us it does reach and begin to
+	execute the stub function but fails when it does anything useful.  We had trouble
+	actually pushing things onto	the new stack.
 
+	An interesting side note:  When we ran the program by reusing only one TCB, the program
+	seemed to make it through the yield until it hits an assert checking if the thread changed.
+	This tells us the jump calculation is likely working properly.
+
+	In order to make the program run as desrcibed in the side note, replacing "&found" with
+	"&tcb" on line 181 of ULT.c.
 
 
 
